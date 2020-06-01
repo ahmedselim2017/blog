@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reversing on Blog</title>
+    <link>/tags/reversing/</link>
+    <description>Recent content in reversing on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ahmed Selim Üzüm</copyright>
+    
+	<atom:link href="/tags/reversing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Octopus</title>
+      <link>/writups/castorsctf20/octopus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/octopus/</guid>
+      <description>First we can see there is base64 encoded data inside PEM certificate. When we decode it we get a executable file. Then with executing it we get some Portuguese text and base64 encoded flag!
+Flag: castorsCTF{Wh0_s41d_AnY7hlnG_B0uT_m4tH}</description>
+    </item>
+    
+    <item>
+      <title>Reverse-me</title>
+      <link>/writups/castorsctf20/reverse-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/reverse-me/</guid>
+      <description>It looks like we can get flag but it is encoded. Normally, I should have reversed the binary and find how it encode the flag and the decode it and get the flag. But I first tested all printable chars and get the corresponding encoded byte. Then with that, I matched all encoded bytes to corresponding char and got the flag
+Flag: castorsCTF{r3v3r51n6_15_fun}</description>
+    </item>
+    
+    <item>
+      <title>Stack</title>
+      <link>/writups/castorsctf20/stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/stack/</guid>
+      <description>First we should inspect the binary id radare2
+λ › r2 -d stacking [0x7fe5bbd5b100]&amp;gt; aaa [0x7fe5bbd5b100]&amp;gt; afl [0x7fe5bbd5b100]&amp;gt; s main [0x5630d16b870a]&amp;gt; pdf ; DATA XREF from entry0 @ 0x5630d16b861d ┌ 32: int main (int argc, char **argv, char **envp); │ ; var int64_t var_10h @ rbp-0x10 │ ; var int64_t var_4h @ rbp-0x4 │ ; arg int argc @ rdi │ ; arg char **argv @ rsi │ 0x5630d16b870a 55 push rbp │ 0x5630d16b870b 4889e5 mov rbp, rsp │ 0x5630d16b870e 4883ec10 sub rsp, 0x10 │ 0x5630d16b8712 897dfc mov dword [var_4h], edi ; argc │ 0x5630d16b8715 488975f0 mov qword [var_10h], rsi ; argv │ 0x5630d16b8719 b800000000 mov eax, 0 │ 0x5630d16b871e e807000000 call sym.</description>
+    </item>
+    
+    <item>
+      <title>Vault 0</title>
+      <link>/writups/castorsctf20/vault0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/vault0/</guid>
+      <description>We can see the checkpass() function first converts string to hex and then checks the values by hardcoded flag. We can easily get the flag by formatting the hardcoded values and then converting them to string with python.
+_input = [0x63, 0x61, 0x73, 0x74, 0x6f, 0x72, 0x73, 0x43, 0x54, 0x46, 0x7b, 0x72, 0x31, 0x78, 0x54, 0x79, 0x5f, 0x6d, 0x31, 0x6e, 0x75, 0x74, 0x33, 0x73, 0x5f, 0x67, 0x74, 0x5f, 0x73, 0x31, 0x78, 0x74, 0x79, 0x5f, 0x6d, 0x31, 0x6e, 0x75, 0x74, 0x33, 0x73, 0x7d] for i in _input: print(chr(i), end=&amp;#34;&amp;#34;) Flag: castorsCTF{r1xTy_m1nut3s_gt_s1xty_m1nut3s}</description>
+    </item>
+    
+  </channel>
+</rss>

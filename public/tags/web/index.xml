@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on Blog</title>
+    <link>/tags/web/</link>
+    <description>Recent content in web on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ahmed Selim Üzüm</copyright>
+    
+	<atom:link href="/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bane Art</title>
+      <link>/writups/castorsctf20/bane_art/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/bane_art/</guid>
+      <description>When we inspect the site we can see it uses topic param for getting the topig. And it looks like it includes the topic file. But can we use it for LFI? YES! We can test it with setting topic to /etc/passwd.
+With changing our user agent to &amp;lt;?php system($_GET[&#39;cmd&#39;]);?&amp;gt; and reading /var/log/apache2/access.log file we can execute any command we want using CMD param. Then with setting CMD to ls -Rla we can see flag is inside /home/falg/flag/test/why/the/hassle/right/flag.</description>
+    </item>
+    
+    <item>
+      <title>Quiz</title>
+      <link>/writups/castorsctf20/quiz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/quiz/</guid>
+      <description>It looks like there is some math problems in here. Let&amp;rsquo;s use gobuster for finding is there anything else. We found backup! And ther is an interesting function called super which prints a file. So let&amp;rsquo;s print the flag. But where could it be? maybe inside /home/$USER/flag.txt? Let&amp;rsquo;s try it. We know the user is jeff from challenge description. Let&amp;rsquo;s send a request to http://web1.cybercastors.com:14436/test/home/jeff/flag.txt And we got the flag!</description>
+    </item>
+    
+    <item>
+      <title>Shortcuts</title>
+      <link>/writups/castorsctf20/shortcuts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/shortcuts/</guid>
+      <description>First, let&amp;rsquo;s try to upload a go file.
+exit status 1Sorry there doesn&#39;t seem to be a cat.go.go file So it means we need to remove .go extension? Let&amp;rsquo;s upload another one without extension. Yep! It worked. But for that there needs to be one with extension and one without.
+So if we can execute go file let&amp;rsquo;s execute ls -Rla with go and find the interesting files.
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;os/exec&amp;#34; ) func main() { cmd := exec.</description>
+    </item>
+    
+  </channel>
+</rss>

