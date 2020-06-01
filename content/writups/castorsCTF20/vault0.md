@@ -1,0 +1,26 @@
+---
+type: "post"
+title: "Vault 0"
+author: "tozkoparan (Ahmed Selim Üzüm)"
+tags: ["writeup", "reversing", "castorsCTF20"]
+---
+
+We can see the `checkpass()` function first converts string to hex and then checks
+the values by hardcoded flag. We can easily get the flag by formatting the hardcoded
+values and then converting them to string with python.
+
+```python
+_input = [0x63, 0x61, 0x73, 0x74,
+          0x6f, 0x72, 0x73, 0x43, 0x54,
+          0x46, 0x7b, 0x72, 0x31, 0x78,
+          0x54, 0x79, 0x5f,
+          0x6d, 0x31, 0x6e,
+          0x75, 0x74, 0x33, 0x73, 0x5f, 0x67, 0x74,
+          0x5f, 0x73, 0x31, 0x78, 0x74, 0x79, 0x5f, 0x6d,
+          0x31, 0x6e, 0x75, 0x74, 0x33,
+          0x73, 0x7d]
+for i in _input:
+    print(chr(i), end="")
+```
+
+**Flag:** `castorsCTF{r1xTy_m1nut3s_gt_s1xty_m1nut3s}`
