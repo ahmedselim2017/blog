@@ -1,3 +1,7 @@
 [submodule "themes/terminal"]
 	path = themes/terminal
 	url = https://github.com/panr/hugo-theme-terminal.git
+[submodule "public"]
+	path = public
+	url = git@github.com:ahmedselim2017/ahmedselim2017.github.io.git
+	branch = master
