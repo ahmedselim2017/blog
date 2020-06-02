@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Shortcuts"
+title: "castorsCTF20 - Shortcuts"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "web", "castorsCTF20"]
 ---
 
+<!--more-->
 First, let's try to upload a go file.
 ```
 exit status 1Sorry there doesn't seem to be a cat.go.go file

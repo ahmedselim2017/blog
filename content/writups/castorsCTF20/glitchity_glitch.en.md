@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Glitchity Glitch"
+title: "castorsCTF20 - Glitchity Glitch"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "coding", "castorsCTF20"]
 ---
 
+<!--more-->
 For getting the flag in this challenge we have to have lots of money. For this
 we can buy VPN, then sell it and because of the glitch we can sell it again and again!
 So let's write a script for earning money.

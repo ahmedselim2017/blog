@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Bane Art"
+title: "Bane castorsCTF20 - Art"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "web", "castorsCTF20"]
 ---
 
+<!--more-->
 When we inspect the site we can see it uses `topic` param for getting the topig.
 And it looks like it includes the topic file. But can we use it for LFI? YES!
 We can test it with setting `topic` to `/etc/passwd`.

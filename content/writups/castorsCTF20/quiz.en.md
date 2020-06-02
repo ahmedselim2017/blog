@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Quiz"
+title: "castorsCTF20 - Quiz"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "web", "castorsCTF20"]
 ---
 
+<!--more-->
 It looks like there is some math problems in here. Let's use gobuster for finding
 is there anything else. We found `backup`! And ther is an interesting function called
 super which prints a file. So let's print the flag. But where could it be? maybe

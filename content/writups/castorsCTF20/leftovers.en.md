@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Leftovers"
+title: "castorsCTF20 - Leftovers"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "forensics", "castorsCTF20"]
 ---
 
+<!--more-->
 We can decode the packages using this code
 The packages are `USB` packages. So maybe it is a keyboard? We can find decoding information
 indside HID Usage Tables. So let's decode it using python.

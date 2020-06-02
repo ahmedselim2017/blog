@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "babybof1"
+title: "castorsCTF20 - babybof1"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "pwn", "castorsCTF20"]
 ---
 
+<!--more-->
 With `radare2` we can see there is a `get_flag` function so let's ROP it!
 
 ```python

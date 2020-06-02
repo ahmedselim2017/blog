@@ -8,7 +8,7 @@ paginate = 5
   contentTypeName = "post"
 
   # ["orange", "blue", "red", "green", "pink"]
-  themeColor = "green"
+  themeColor = "blue"
 
   # if you set this to 0, only submenu trigger will be visible
   showMenuItems = 2
@@ -20,7 +20,7 @@ paginate = 5
   fullWidthTheme = false
 
   # center theme with default width
-  centerTheme = true
+  centerTheme = false
 
   # set a custom favicon (default is a `themeColor` square)
   # favicon = "favicon.ico"
@@ -46,7 +46,7 @@ paginate = 5
   [languages.en]
     languageName = "English"
     title = "Blog"
-    subtitle = ""
+    subtitle = "Where's the truth in the written word if no one reads it?"
     owner = "Tozkoparan (Ahmed Selim Üzüm)"
     keywords = "blog"
     copyright = "Ahmed Selim Üzüm"
@@ -57,7 +57,7 @@ paginate = 5
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-      logoText = "Ahmed Selim Üzüm"
+      logoText = "Tozkoparan (Ahmed Selim Üzüm)"
       logoHomeLink = "/"
 
     [languages.en.menu]
@@ -102,3 +102,4 @@ paginate = 5
         name = "Yazılar"
         url = "/yazilar"
         weight = 3
+

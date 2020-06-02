@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Reverse-me"
+title: "castorsCTF20 - Reverse-me"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "reversing", "castorsCTF20"]
 ---
 
+<!--more-->
 It looks like we can get flag but it is encoded. Normally, I should have reversed
 the binary and find how it encode the flag and the decode it and get the flag. But
 I first tested all printable chars and get the corresponding encoded byte. Then

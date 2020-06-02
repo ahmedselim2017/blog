@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Base Number"
+title: "Base castorsCTF20 - Number"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "coding", "castorsCTF20"]
 ---
 
+<!--more-->
 For getting the flag in this challenge we should first decode the given binary
 from binary, then octal, then hex and then base64.
 

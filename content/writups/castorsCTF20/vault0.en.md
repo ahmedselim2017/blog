@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Vault 0"
+title: "castorsCTF20 - Vault 0"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "reversing", "castorsCTF20"]
 ---
 
+<!--more-->
 We can see the `checkpass()` function first converts string to hex and then checks
 the values by hardcoded flag. We can easily get the flag by formatting the hardcoded
 values and then converting them to string with python.

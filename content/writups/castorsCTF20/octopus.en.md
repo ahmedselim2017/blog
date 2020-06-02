@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Octopus"
+title: "castorsCTF20 - Octopus"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "reversing", "castorsCTF20"]
 ---
 
+<!--more-->
 
 First we can see there is base64 encoded data inside PEM certificate. When we
 decode it we get a executable file. Then with executing it we get some Portuguese

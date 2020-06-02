@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "abcbof"
+title: "castorsCTF20 - abcbof"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "pwn", "castorsCTF20"]
 ---
 
+<!--more-->
 The executable file wants a password from us. So let's see if it uses `strcmp`
 for comparing it. If that, and the text isn't encyripted we should able to see the
 password. So let's run `ltrace ./abcbof` and give `aaaa` for password. Here is the

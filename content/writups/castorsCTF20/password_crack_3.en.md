@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Password Crack 3"
+title: "castorsCTF20 - Password Crack 3"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "misc", "castorsCTF20"]
 ---
 
+<!--more-->
 This one is a bit more diffrent than other password crack challenges. We can't
 crack it using normal rockyou wordlist becauese it is wrapped inside flag format.
 Bu we can try to brute force wrapping all the words inside rockyou. And for that

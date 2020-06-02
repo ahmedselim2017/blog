@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Stack"
+title: "castorsCTF20 - Stack"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "reversing", "castorsCTF20"]
 ---
 
+<!--more-->
 First we should inspect the binary id `radare2`
 
 ```

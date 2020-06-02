@@ -1,11 +1,12 @@
 ---
 type: "post"
-title: "Gif"
+title: "castorsCTF20 - Gif"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "misc", "castorsCTF20"]
 ---
 
-![Gif](/writups/castorsctf20/gif/gif.gif)
+<!--more-->
+![Gif](/writups/castorsctf20/gif.gif)
 
 We can extract the numbers we see with `convert -coalesce brocoli.gif gif.gif`
 command.

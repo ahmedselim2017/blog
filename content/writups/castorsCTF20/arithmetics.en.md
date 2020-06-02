@@ -1,12 +1,17 @@
 ---
 type: "post"
-title: "Arithmetics"
+title: "castorsCTF20 - Arithmetics"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "Coding", "castorsCTF20"]
 ---
 
+<!--more-->
+<!--more-->
+
+
 When we connect to the server, we can see we have to answer a lot of questions.
 So that let's write a script!
+
 
 ```python
 from pwn import *

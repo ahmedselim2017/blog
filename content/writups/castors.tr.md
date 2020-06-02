@@ -2,6 +2,7 @@
 title: "castorsCTF20"
 type: "post"
 ---
+Yeniden yazmaya şu anlarda biraz üşendim, şimdilik sadece İngilizce
 # castorsCTF20
 
 CTFtime link: [https://ctftime.org/event/1063](https://ctftime.org/event/1063)

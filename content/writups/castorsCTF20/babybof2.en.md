@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "babybof2"
+title: "castorsCTF20 - babybof2"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "pwn", "castorsCTF20"]
 ---
 
+<!--more-->
 With same strategy as `babybof1` we can get the flag
 
 ```python

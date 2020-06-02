@@ -1,10 +1,11 @@
 ---
 type: "post"
-title: "Car Lottery"
+title: "castorsCTF20 - Car Lottery"
 author: "tozkoparan (Ahmed Selim Üzüm)"
 tags: ["writeup", "coding", "castorsCTF20"]
 ---
 
+<!--more-->
 First, with changing our `client` cookie to `3123248` we can access winner page.
 Then we can see site is using `id` param for getting car types. And if we use
 a invalid car type and then send a invalid ID we get an SQL error!
