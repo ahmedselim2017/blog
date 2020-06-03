@@ -15,7 +15,7 @@ CTFtime link: [https://ctftime.org/event/1063](https://ctftime.org/event/1063)
 ## Reversing
 - [Vault0](/writups/castorsctf20/vault0)
 - [Stacking](/writups/castorsctf20/stacking)
-- [Reverse-me](/writups/castorsctf20/Reverse-me)
+- [Reverse-me](/writups/castorsctf20/reverse-me)
 - [Octopus](/writups/castorsctf20/octopus)
 
 ## Web

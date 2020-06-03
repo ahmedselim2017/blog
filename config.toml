@@ -20,7 +20,7 @@ paginate = 5
   fullWidthTheme = false
 
   # center theme with default width
-  centerTheme = false
+  centerTheme = true
 
   # set a custom favicon (default is a `themeColor` square)
   # favicon = "favicon.ico"
@@ -46,7 +46,7 @@ paginate = 5
   [languages.en]
     languageName = "English"
     title = "Blog"
-    subtitle = "Where's the truth in the written word if no one reads it?"
+    subtitle = ""
     owner = "Tozkoparan (Ahmed Selim Üzüm)"
     keywords = "blog"
     copyright = "Ahmed Selim Üzüm"
